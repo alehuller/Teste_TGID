@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers E-Commerce</title>
+    <link rel="stylesheet" type="text/css" href="stylePaginaCadastroCliente.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <fieldset>
+            <legend><b>Cadastro Cliente</b></legend>
+            <h2>Dados</h2>
+            <form th:action="@{/paginaCadastroCliente}" th:object="${cliente}" method="post" onsubmit="return validateForm();">
+                <div class="inputBox">
+                    <input type="number" name="cpf" id="cpf" class="inputUser" th:field="*{cpf}" required>
+                    <label class="labelInput">CPF</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" name="senha" id="senha" class="inputUser" th:field="*{senha}" required>
+                    <label class="labelInput">Senha</label>
+                </div>
+                <br>
+                <div class="inputBox">
+                    <input type="number" name="cnpj" id="cnpj" class="inputUser" th:field="*{cnpjEmpresa}" required>
+                    <label class="labelInput">CNPJ Empresa</label>
+                </div>
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

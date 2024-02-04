@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers E-Commerce</title>
+    <link rel="stylesheet" type="text/css" href="stylePaginaCadastroCliente.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <fieldset>
+            <legend><b>Saque</b></legend>
+            <h2>Dados</h2>
+            <form th:action="@{/paginaSaque}" method="post" onsubmit="return validateForm();">
+                <div class="inputBox">
+                    <input type="number" name="valorSaque" id="valorSaque" class="inputUser" required>
+                    <label class="labelInput">Sacar:</label>
+                </div>
+                <br>
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </fieldset>
+    </div>
+
+    <script th:inline="javascript">
+        //Script para mostrar a mensagem se a transação foi concluída ou não.
+        function processarFormulario() {
+            var transacaoSucesso = /*[[${transacaoSucesso}]]*/ false;
+            var transacaoFalha = /*[[${transacaoFalha}]]*/ false;
+
+            if (transacaoSucesso) {
+                alert('Transação concluída com sucesso.');
+            }
+
+            if (transacaoFalha) {
+                alert('Falha na transação. Verifique o saldo disponível.');
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
